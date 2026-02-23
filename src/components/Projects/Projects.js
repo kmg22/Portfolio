@@ -12,6 +12,137 @@ import serverImage from "../../Assets/Projects/serverImage.png";
 import uPCImage from "../../Assets/Projects/uPCImage.png";
 import fuzzImage from "../../Assets/Projects/fuzzImage.png";
 
+// CheckTime 상세 팝업 내용
+const CheckTimeDetail = () => (
+  <div className="modal-detail-body">
+
+    <section className="modal-section">
+      <h3 className="modal-section-title">📌 프로젝트 개요</h3>
+      <p>
+        인기 콘서트 티켓팅이나 대학 수강신청에서 <strong>몇 초 차이로 성패가 갈리는</strong> 상황에서,
+        대부분의 사용자는 브라우저 로컬 시간을 기준으로 판단하여 실제 서버 오픈 시간과 오차가 발생합니다.
+        CheckTime은 <strong>NTP 기반 서버 시간 동기화</strong>, <strong>RTT 측정을 통한 네트워크 지연 보정</strong>,
+        <strong> 최적 새로고침 타이밍 계산</strong>을 핵심 기능으로 제공하는 웹 서비스입니다.
+      </p>
+    </section>
+
+    <section className="modal-section">
+      <h3 className="modal-section-title">🛠 기술 스택</h3>
+      <div className="modal-tech-grid">
+        <div className="modal-tech-group">
+          <span className="modal-tech-label">Frontend</span>
+          <div className="modal-tech-tags">
+            <span className="modal-tag tag-blue">Next.js</span>
+            <span className="modal-tag tag-blue">TypeScript</span>
+          </div>
+        </div>
+        <div className="modal-tech-group">
+          <span className="modal-tech-label">Backend</span>
+          <div className="modal-tech-tags">
+            <span className="modal-tag tag-green">Node.js v22</span>
+            <span className="modal-tag tag-green">Express</span>
+            <span className="modal-tag tag-green">JWT</span>
+          </div>
+        </div>
+        <div className="modal-tech-group">
+          <span className="modal-tech-label">Database</span>
+          <div className="modal-tech-tags">
+            <span className="modal-tag tag-blue">PostgreSQL 17</span>
+          </div>
+        </div>
+        <div className="modal-tech-group">
+          <span className="modal-tech-label">핵심 기술</span>
+          <div className="modal-tech-tags">
+            <span className="modal-tag tag-orange">NTP</span>
+            <span className="modal-tag tag-orange">Puppeteer</span>
+            <span className="modal-tag tag-orange">Cheerio</span>
+            <span className="modal-tag tag-orange">Railway</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="modal-section">
+      <h3 className="modal-section-title">⚙️ 주요 기능 및 기술</h3>
+      <div className="modal-features-grid">
+        <div className="modal-feature-card">
+          <span className="modal-feature-icon">🕐</span>
+          <div>
+            <strong>NTP 서버 시간 동기화</strong>
+            <p>pool.ntp.org 등 3개 서버에 RTT 다중 측정. 크리스티안 알고리즘으로 편도 지연 계산. Web Workers로 백그라운드 자동 재동기화.</p>
+          </div>
+        </div>
+        <div className="modal-feature-card">
+          <span className="modal-feature-icon">⏱️</span>
+          <div>
+            <strong>최적 새로고침 타이밍 계산</strong>
+            <p>RTT · 네트워크 상태 · 서버 부하 · 과거 성공률을 종합한 동적 알고리즘. "4.5초 전 새로고침" 등 정밀 타이밍 안내.</p>
+          </div>
+        </div>
+        <div className="modal-feature-card">
+          <span className="modal-feature-icon">🔍</span>
+          <div>
+            <strong>사이트 자동 URL 발견</strong>
+            <p>Levenshtein 유사도 검사 후 미등록 사이트는 4단계 자동 발견 (대학 API → 도메인 패턴 → 네이버 스크래핑). 결과를 DB에 자동 등록.</p>
+          </div>
+        </div>
+        <div className="modal-feature-card">
+          <span className="modal-feature-icon">🏆</span>
+          <div>
+            <strong>인기 사이트 랭킹</strong>
+            <p>실시간 / 일간 / 주간 / 전체 기간별 클릭 집계. 대학·티켓팅 카테고리별 조회. WebSocket 기반 실시간 업데이트.</p>
+          </div>
+        </div>
+        <div className="modal-feature-card">
+          <span className="modal-feature-icon">🤖</span>
+          <div>
+            <strong>매크로 예약 실행</strong>
+            <p>특정 시각에 URL 자동 요청(refresh/get/post/form). 크론잡 기반 예약 실행 및 실행 이력 관리.</p>
+          </div>
+        </div>
+        <div className="modal-feature-card">
+          <span className="modal-feature-icon">⚡</span>
+          <div>
+            <strong>반응속도 측정 & 랭킹</strong>
+            <p>Performance API 기반 클릭 반응속도 측정. 전체 순위 / 내 순위 / TOP 10 조회. 티켓팅 전 훈련 도구로 활용.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="modal-section">
+      <h3 className="modal-section-title">👩‍💻 담당 역할 (BE)</h3>
+      <ul className="modal-role-list">
+        <li>NTP 연동 서버 시간 동기화 및 RTT 기반 네트워크 지연 보정 알고리즘 구현</li>
+        <li>동적 적응형 최적 새로고침 인터벌 계산 API 설계 및 구현</li>
+        <li>Levenshtein Distance 기반 유사도 검색 + SiteDiscoveryService 4단계 자동 발견 로직 구현</li>
+        <li>매크로 예약 실행 시스템 (크론잡, 실행 이력, 모니터링) 구현</li>
+        <li>인기 사이트 기간별 집계 API 및 북마크 기능 구현</li>
+        <li>PostgreSQL DB 설계 (10개 테이블) 및 Railway 배포</li>
+      </ul>
+    </section>
+
+    <section className="modal-section">
+      <h3 className="modal-section-title">🔥 주요 트러블슈팅</h3>
+      <div className="modal-trouble-list">
+        <div className="modal-trouble-item">
+          <span className="modal-trouble-badge">RTT 정확도</span>
+          <p>단일 측정의 오차를 줄이기 위해 3회 다중 샘플링 후 중앙값 채택. 네트워크 지터(jitter) 감지 로직 추가.</p>
+        </div>
+        <div className="modal-trouble-item">
+          <span className="modal-trouble-badge">URL 자동 발견</span>
+          <p>한글 검색어("숭실대" 등)의 낮은 인식률 문제를 hipolabs 대학 API + 도메인 패턴 + 네이버 스크래핑 3단계 폴백 전략으로 보완.</p>
+        </div>
+        <div className="modal-trouble-item">
+          <span className="modal-trouble-badge">크론잡 타이밍</span>
+          <p>분 단위 크론잡과 예약 시간 불일치 문제를 수동 트리거 API 제공으로 보완. 35초 경과 시 자동 수동 실행 유도.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+);
+
 // CI/CD 상세 팝업 내용
 const CICDDetail = () => (
   <div className="modal-detail-body">
@@ -321,6 +452,7 @@ function Projects() {
               description="Node.js와 PostgreSQL을 활용한 사용자 네트워크 지연시간을 고려한 서버시간 측정 웹 서비스 <IT 프로젝트 공모전 장려상>"
               ghLink="https://github.com/The-CheckMate/CheckTime-BE"
               demoLink="https://www.canva.com/design/DAG1lbYuGms/ef-ptOwY3Hx_4kYhfvGvZw/edit?utm_content=DAG1lbYuGms&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+              detail={<CheckTimeDetail  />}
             />
           </Col>
 
