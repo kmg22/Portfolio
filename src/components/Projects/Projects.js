@@ -7,9 +7,129 @@ import InSea from "../../Assets/Projects/InSea.png";
 import v2xImage from "../../Assets/Projects/v2xImage.png";
 import signLanguageImage from "../../Assets/Projects/signLanguageImage.png";
 import llmImage from "../../Assets/Projects/llmImage.png";
+import cicdImage from "../../Assets/Projects/jenkins_cicd.png";
 import serverImage from "../../Assets/Projects/serverImage.png";
 import uPCImage from "../../Assets/Projects/uPCImage.png";
 import fuzzImage from "../../Assets/Projects/fuzzImage.png";
+
+// CI/CD 상세 팝업 내용
+const CICDDetail = () => (
+  <div className="modal-detail-body">
+
+    <section className="modal-section">
+      <h3 className="modal-section-title">📌 프로젝트 개요</h3>
+      <p>
+        Ubuntu 홈서버 환경에서 Kubernetes(K3s) 기반 CI/CD 파이프라인을
+        직접 설계하고 구축한 DevOps 실습 프로젝트입니다.
+        <strong> Jenkins → SonarQube → Harbor → ArgoCD</strong>로 이어지는
+        온프레미스 엔터프라이즈 수준의 DevOps 아키텍처를 재현하였으며,
+        Blue/Green 무중단 배포와 Prometheus + Grafana 모니터링까지 구성했습니다.
+      </p>
+    </section>
+
+    <section className="modal-section">
+      <h3 className="modal-section-title">🛠 기술 스택</h3>
+      <div className="modal-tech-grid">
+        <div className="modal-tech-group">
+          <span className="modal-tech-label">Application</span>
+          <div className="modal-tech-tags">
+            <span className="modal-tag tag-green">Spring Boot 4.0.2</span>
+            <span className="modal-tag tag-green">Java 17</span>
+            <span className="modal-tag tag-green">Gradle</span>
+            <span className="modal-tag tag-green">MariaDB 11</span>
+          </div>
+        </div>
+        <div className="modal-tech-group">
+          <span className="modal-tech-label">Infra / K8s</span>
+          <div className="modal-tech-tags">
+            <span className="modal-tag tag-blue">K3s</span>
+            <span className="modal-tag tag-blue">Docker</span>
+            <span className="modal-tag tag-blue">Helm 3</span>
+            <span className="modal-tag tag-blue">Traefik</span>
+          </div>
+        </div>
+        <div className="modal-tech-group">
+          <span className="modal-tech-label">CI/CD</span>
+          <div className="modal-tech-tags">
+            <span className="modal-tag tag-orange">Jenkins</span>
+            <span className="modal-tag tag-orange">SonarQube</span>
+            <span className="modal-tag tag-orange">Harbor</span>
+            <span className="modal-tag tag-orange">ArgoCD</span>
+          </div>
+        </div>
+        <div className="modal-tech-group">
+          <span className="modal-tech-label">Monitoring</span>
+          <div className="modal-tech-tags">
+            <span className="modal-tag tag-purple">Prometheus</span>
+            <span className="modal-tag tag-purple">Grafana</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="modal-section">
+      <h3 className="modal-section-title">⚙️ 주요 기능</h3>
+      <div className="modal-features-grid">
+        <div className="modal-feature-card">
+          <span className="modal-feature-icon">🔄</span>
+          <div>
+            <strong>GitOps 기반 자동 배포</strong>
+            <p>Git을 Single Source of Truth로 사용. ArgoCD가 GitOps 레포 변경을 감지하여 자동 배포. git revert만으로 즉시 롤백 가능.</p>
+          </div>
+        </div>
+        <div className="modal-feature-card">
+          <span className="modal-feature-icon">🔵</span>
+          <div>
+            <strong>Blue/Green 무중단 배포</strong>
+            <p>두 개의 동일 환경을 항상 유지. activeColor 값 변경만으로 트래픽 즉시 전환. 문제 발생 시 1분 이내 롤백 가능.</p>
+          </div>
+        </div>
+        <div className="modal-feature-card">
+          <span className="modal-feature-icon">🔍</span>
+          <div>
+            <strong>코드 품질 자동 검사</strong>
+            <p>모든 빌드마다 SonarQube 정적 분석 수행. 버그·취약점·코드 스멜 자동 검출. Quality Gate 통과 필수.</p>
+          </div>
+        </div>
+        <div className="modal-feature-card">
+          <span className="modal-feature-icon">🐳</span>
+          <div>
+            <strong>Private Container Registry</strong>
+            <p>Harbor로 Private Registry 구축. 이미지 취약점 스캔 및 접근 제어. Jenkins에서 빌드 후 자동 푸시.</p>
+          </div>
+        </div>
+        <div className="modal-feature-card">
+          <span className="modal-feature-icon">🧪</span>
+          <div>
+            <strong>Testcontainers CI 테스트</strong>
+            <p>Testcontainers 기반 통합 테스트. 실제 DB 환경에서 테스트 수행. CI 파이프라인에 자동 통합.</p>
+          </div>
+        </div>
+        <div className="modal-feature-card">
+          <span className="modal-feature-icon">📊</span>
+          <div>
+            <strong>실시간 모니터링</strong>
+            <p>Prometheus로 JVM·HTTP·DB 메트릭 수집. Grafana 대시보드로 시각화. Spring Boot Actuator 통합.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="modal-section">
+      <h3 className="modal-section-title">🏗 CI/CD 파이프라인 흐름</h3>
+      <ul className="modal-role-list">
+        <li>코드 Push → GitHub Webhook → Jenkins 빌드 트리거</li>
+        <li>Gradle 빌드 + Testcontainers 통합 테스트 수행</li>
+        <li>SonarQube 정적 분석 → Quality Gate 통과 여부 확인</li>
+        <li>Docker 이미지 빌드 → Harbor Private Registry에 Push</li>
+        <li>GitOps 레포의 이미지 태그 자동 업데이트</li>
+        <li>ArgoCD가 변경 감지 → K3s 클러스터에 자동 배포</li>
+        <li>Blue/Green 전환으로 무중단 서비스 유지</li>
+      </ul>
+    </section>
+
+  </div>
+);
 
 // InSea 상세 팝업 내용
 const InSeaDetail = () => (
@@ -179,6 +299,17 @@ function Projects() {
               ghLink="https://github.com/The-CheckMate/InSea-BE"
               demoLink="https://www.canva.com/design/DAGxME2-Ufg/wPFBrReywY_cPr-BT1ZHGA/edit?utm_content=DAGxME2-Ufg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
               detail={<InSeaDetail />}
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={cicdImage}
+              isBlog={false}
+              title="Home Server 기반 Kubernetes CI/CD Pipeline 구축"
+              description="Ubuntu 홈서버 CICD 프로젝트 - <K3s+Jenkins+Harbor+ArgoCD+GitOps> 기반 CI/CD 파이프라인"
+              ghLink="https://github.com/kmg22/CICD"
+              detail={<CICDDetail />}
             />
           </Col>
 
