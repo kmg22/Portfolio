@@ -440,6 +440,7 @@ function Projects() {
               title="Home Server 기반 Kubernetes CI/CD Pipeline 구축"
               description="Ubuntu 홈서버 CICD 프로젝트 - <K3s+Jenkins+Harbor+ArgoCD+GitOps> 기반 CI/CD 파이프라인"
               ghLink="https://github.com/kmg22/CICD"
+              award="학습공동체 최우수상"
               detail={<CICDDetail />}
             />
           </Col>
@@ -452,6 +453,7 @@ function Projects() {
               description="Node.js와 PostgreSQL을 활용한 사용자 네트워크 지연시간을 고려한 서버시간 측정 웹 서비스 <IT 프로젝트 공모전 장려상>"
               ghLink="https://github.com/The-CheckMate/CheckTime-BE"
               demoLink="https://www.canva.com/design/DAG1lbYuGms/ef-ptOwY3Hx_4kYhfvGvZw/edit?utm_content=DAG1lbYuGms&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+              award="IT 프로젝트 공모전 장려상"
               detail={<CheckTimeDetail  />}
             />
           </Col>
@@ -500,9 +502,65 @@ function Projects() {
             <ProjectCard
               imgPath={fuzzImage}
               isBlog={true}
+              primaryLabel="Presentation"
+              primaryIcon="website"
               title="한국정보보호학회 2025년 하계학술대회(CISC-S'25)"
               description="PHP기반 웹 취약점 탐지를 위한 Fuzzing 동향 및 향후 연구"
               ghLink="https://www.canva.com/design/DAGpeZCdoZo/8aWsgdyX8w5oQBKRSrnKFw/edit?utm_content=DAGpeZCdoZo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+              downloadLink={`${process.env.PUBLIC_URL}/CISC-S_25_paper_144.pdf`}
+              award="CISC-S'25 논문 투고"
+              detail={
+                <div className="modal-detail-body">
+                  <section className="modal-section">
+                    <h3 className="modal-section-title">논문 요약</h3>
+                    <p>
+                      이 논문은 PHP 기반 웹 애플리케이션의 취약점 탐지를 위해 제안된
+                      <strong> Phuzz, Atropos, FuzzCache</strong>를 비교 분석한
+                      연구입니다. 세 도구가 각각 병렬 처리, 상태 스냅샷, 캐시 최적화를
+                      통해 탐지 효율을 높였지만, 입력 생성 방식과 상태 처리 측면에서
+                      구조적인 한계가 있음을 정리한 논문입니다.
+                    </p>
+                  </section>
+                  <section className="modal-section">
+                    <h3 className="modal-section-title">도구별 비교 분석</h3>
+                    <div className="fuzzer-compare-list">
+                      <div className="fuzzer-compare-card">
+                        <h4 className="fuzzer-compare-name">Phuzz</h4>
+                        <p className="fuzzer-compare-desc">
+                          HAR 기반 시드와 특수 페이로드를 변이해 대규모 엔드포인트를 병렬
+                          테스트하고, 후킹 기반 계측으로 서버·클라이언트 취약점을 탐지합니다.
+                        </p>
+                        <p className="fuzzer-compare-note">
+                          단순 변이 중심이라 다단계 상호작용 탐지에 한계가 있고, 후킹 기반
+                          계측에 따른 성능 오버헤드와 오탐 가능성이 있습니다.
+                        </p>
+                      </div>
+                      <div className="fuzzer-compare-card">
+                        <h4 className="fuzzer-compare-name">Atropos</h4>
+                        <p className="fuzzer-compare-desc">
+                          키-값 쌍 구조의 입력을 추론하고 NYX 기반 스냅샷으로 시스템 상태를
+                          빠르게 복원해, 상태 의존적인 서버 취약점 탐지에 강점을 보입니다.
+                        </p>
+                        <p className="fuzzer-compare-note">
+                          입력 구조 추론과 심층 분석은 강점이지만, 시스템 설계와 구현이
+                          복잡하고 자원 소모가 커 경량 환경에는 부적합합니다.
+                        </p>
+                      </div>
+                      <div className="fuzzer-compare-card">
+                        <h4 className="fuzzer-compare-name">FuzzCache</h4>
+                        <p className="fuzzer-compare-desc">
+                          독립 Fuzzer가 아니라 보조 도구로서 데이터베이스·네트워크 요청을
+                          캐싱해 처리량을 높이며, 기존 웹 퍼저의 성능 최적화를 지원합니다.
+                        </p>
+                        <p className="fuzzer-compare-note">
+                          처리량 향상에는 효과적이지만 테이블 단위 캐싱으로 불필요한 데이터까지
+                          메모리에 적재될 수 있어 정확도와 효율 측면의 한계가 있습니다.
+                        </p>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              }
             />
           </Col>
 

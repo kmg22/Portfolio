@@ -3,9 +3,12 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub, BsXLg } from "react-icons/bs";
+import { AiOutlineDownload } from "react-icons/ai";
 
 function ProjectCards(props) {
   const [showModal, setShowModal] = useState(false);
+  const PrimaryIcon = props.primaryIcon === "website" ? CgWebsite : BsGithub;
+  const primaryLabel = props.primaryLabel || (props.isBlog ? "Blog" : "GitHub");
 
   // 모달 열릴 때 body 스크롤 막기
   useEffect(() => {
@@ -35,15 +38,36 @@ function ProjectCards(props) {
           <Card.Text style={{ textAlign: "justify" }}>
             {props.description}
           </Card.Text>
+          {props.award && (
+            <p className="project-card-award">
+              <span className="project-card-award-icon">🏆</span>
+              <span>{props.award}</span>
+            </p>
+          )}
           {hasDetail && (
             <p className="project-card-detail-hint">🔍 클릭해서 자세히 보기</p>
           )}
           {/* 버튼 클릭은 카드 클릭과 분리 */}
-          <div onClick={(e) => e.stopPropagation()}>
+          <div
+            className="project-card-buttons"
+            onClick={(e) => e.stopPropagation()}
+          >
             <Button variant="primary" href={props.ghLink} target="_blank">
-              <BsGithub /> &nbsp;
-              {props.isBlog ? "Blog" : "GitHub"}
+              <PrimaryIcon /> &nbsp;
+              {primaryLabel}
             </Button>
+            {"\n"}
+            {"\n"}
+            {props.downloadLink && (
+              <Button
+                variant="primary"
+                href={props.downloadLink}
+                download
+                style={{ marginLeft: "10px" }}
+              >
+                <AiOutlineDownload /> &nbsp;Download
+              </Button>
+            )}
             {"\n"}
             {"\n"}
             {!props.isBlog && props.demoLink && (
@@ -90,8 +114,18 @@ function ProjectCards(props) {
                 <p className="project-modal-desc">{props.description}</p>
                 <div className="project-modal-buttons">
                   <Button variant="primary" href={props.ghLink} target="_blank">
-                    <BsGithub /> &nbsp;GitHub
+                    <PrimaryIcon /> &nbsp;{primaryLabel}
                   </Button>
+                  {props.downloadLink && (
+                    <Button
+                      variant="primary"
+                      href={props.downloadLink}
+                      download
+                      style={{ marginLeft: "10px" }}
+                    >
+                      <AiOutlineDownload /> &nbsp;Download
+                    </Button>
+                  )}
                   {!props.isBlog && props.demoLink && (
                     <Button
                       variant="primary"

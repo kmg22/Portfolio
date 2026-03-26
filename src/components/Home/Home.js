@@ -4,13 +4,10 @@ import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
-import Techstack from "../About/Techstack";
-import Github from "../About/Github";
 import {
   AiFillGithub,
   AiOutlineMail,
 } from "react-icons/ai";
-import { FaLinkedinIn, FaBlogger } from "react-icons/fa";
 import { SiVelog } from "react-icons/si";
 
 function Home() {
@@ -19,8 +16,8 @@ function Home() {
       <Container fluid className="home-section" id="home">
         <Particle />
         <Container className="home-content">
-          <Row>
-            <Col md={7} className="home-header">
+          <Row className="align-items-center justify-content-center">
+            <Col md={6} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">
                 Hi There!{" "}
                 <span className="wave" role="img" aria-labelledby="wave">
@@ -30,20 +27,20 @@ function Home() {
 
               <h1 className="heading-name">
                 I'M
-                <strong className="main-name"> Mingyeong Kim(김민경)</strong>
+                <strong className="main-name"> KIM MINGYEONG(김민경)</strong>
               </h1>
 
-              <div style={{ padding: 50, textAlign: "left" }}>
+              <div style={{ padding: "24px 0 0", textAlign: "left" }}>
                 <Type />
               </div>
             </Col>
 
-            <Col md={5} style={{ paddingBottom: 20 }}>
+            <Col md={4} className="home-hero-image" style={{ paddingBottom: 20 }}>
               <img
                 src={homeLogo}
                 alt="home pic"
                 className="img-fluid"
-                style={{ maxHeight: "450px" }}
+                style={{ maxHeight: "270px" }}
               />
             </Col>
           </Row>
@@ -52,7 +49,7 @@ function Home() {
       <Home2 />
 
       <Container>
-        <Row style={{ paddingTop: "50px", paddingBottom: "80px" }}>
+        <Row style={{ paddingTop: "34px", paddingBottom: "56px" }}>
           <Col md={12} className="home-about-social">
             <h1>Find Me On</h1>
             <p>
@@ -80,8 +77,8 @@ function Home() {
                 </a>
               </li>
             </ul>
-            <p style={{ marginTop: "15px", fontSize: "0.95em", color: "#c770f0" }}>
-              <AiOutlineMail style={{ marginRight: "8px", verticalAlign: "middle", fontSize: "1.1em" }} />
+            <p style={{ marginTop: "12px", fontSize: "0.78em", color: "#c770f0" }}>
+              <AiOutlineMail style={{ marginRight: "6px", verticalAlign: "middle", fontSize: "1em" }} />
               ssukmg22@gmail.com
             </p>
           </Col>
