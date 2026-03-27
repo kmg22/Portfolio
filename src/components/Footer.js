@@ -10,10 +10,10 @@ function Footer() {
     <Container fluid className="footer">
       <Row>
         <Col md="4" className="footer-copywright">
-          <h3>Kim Mingyeong</h3>
+          <h3>KIM MINGYEONG</h3>
         </Col>
         <Col md="4" className="footer-copywright">
-          <h3>School of Software, Soongsil University</h3>
+          <h3>Backend Developer & Infra Engineer</h3>
         </Col>
         <Col md="4" className="footer-body">
           <ul className="footer-icons">
@@ -48,7 +48,7 @@ function Footer() {
             </li>
           </ul>
           <p className="footer-meta">
-            Information Security Convergence Major · Copyright © {year}
+          Copyright © {year}
           </p>
         </Col>
       </Row>

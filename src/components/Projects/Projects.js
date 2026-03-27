@@ -426,7 +426,7 @@ function Projects() {
               imgPath={InSea}
               isBlog={false}
               title="InSea : 인천 낚시 정보 플랫폼(앱)"
-              description="Spring Boot와 PostgreSQL을 활용한 인천 지역 특화 낚시 정보 및 소통 플랫폼 <2025 관광데이터 활용 공모전 출품작>"
+              description="Spring Boot와 PostgreSQL을 활용한 인천 지역 특화 낚시 정보 및 소통 플랫폼 <2025 관광데이터 활용공모전 출품작>"
               ghLink="https://github.com/The-CheckMate/InSea-BE"
               demoLink="https://www.canva.com/design/DAGxME2-Ufg/wPFBrReywY_cPr-BT1ZHGA/edit?utm_content=DAGxME2-Ufg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
               detail={<InSeaDetail />}
@@ -450,7 +450,7 @@ function Projects() {
               imgPath={serverImage}
               isBlog={false}
               title="CheckTime : 네트워크 지연시간 측정 웹 서비스"
-              description="Node.js와 PostgreSQL을 활용한 사용자 네트워크 지연시간을 고려한 서버시간 측정 웹 서비스 <IT 프로젝트 공모전 장려상>"
+              description="Node.js와 PostgreSQL을 활용한 사용자 네트워크 지연시간을 고려한 서버시간 측정 웹 서비스"
               ghLink="https://github.com/The-CheckMate/CheckTime-BE"
               demoLink="https://www.canva.com/design/DAG1lbYuGms/ef-ptOwY3Hx_4kYhfvGvZw/edit?utm_content=DAG1lbYuGms&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
               award="IT 프로젝트 공모전 장려상"
@@ -493,7 +493,8 @@ function Projects() {
               imgPath={signLanguageImage}
               isBlog={false}
               title="수화 번역기"
-              description="sklearn과 TensorFlow를 활용한 기계학습 기반 수화 번역 시스템 <2023 소프트웨어공모전 금상 수상>"
+              description="sklearn과 TensorFlow를 활용한 기계학습 기반 수화 번역 시스템"
+              award="2023 소프트웨어 공모전 금상"
               ghLink="https://github.com/kmg22/23Summer_SoftProject/"
             />
           </Col>
