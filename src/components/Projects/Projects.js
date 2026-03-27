@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { GiSouthKorea } from "react-icons/gi";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 
@@ -332,7 +333,9 @@ const InSeaDetail = () => (
           </div>
         </div>
         <div className="modal-feature-card">
-          <span className="modal-feature-icon">🗾</span>
+          <span className="modal-feature-icon modal-feature-icon-korea" aria-hidden="true">
+            <GiSouthKorea />
+          </span>
           <div>
             <strong>지도 기반 장소 탐색</strong>
             <p>PostGIS 공간 쿼리로 사용자 위치 기반 주변 낚시터·식당·숙소 검색. 한국관광공사 API 연동.</p>

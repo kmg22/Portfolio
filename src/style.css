@@ -1597,6 +1597,12 @@ button:focus {
   border-radius: 10px; padding: 14px;
 }
 .modal-feature-icon { font-size: 1.4em; flex-shrink: 0; margin-top: 2px; }
+.modal-feature-icon-korea {
+  color: #8be0c2;
+}
+.modal-feature-icon-korea svg {
+  display: block;
+}
 .modal-feature-card strong { display: block; color: white; font-size: 0.9em; margin-bottom: 4px; }
 .modal-feature-card p { font-size: 0.82em; color: #a78bc0; margin: 0; line-height: 1.55; }
 
