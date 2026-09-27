@@ -1,6 +1,6 @@
 <h2 align="center">
   Mingyeong Kim's Portfolio<br/>
-  <a href="https://kmg22.github.io/Portfolio" target="_blank">kmg22.github.io/Portfolio</a>
+  <a href="https://kmg22.me" target="_blank">kmg22.me</a>
 </h2>
 <div align="center">
   <img alt="Demo" src="./Images/readme-img1.png" width="80%"/>
